@@ -1,0 +1,9 @@
+.div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    justify-items: start;
+    /* grid-template: repeat(5, 20%) / repeat(4,25%);
+    width: auto; */
+}

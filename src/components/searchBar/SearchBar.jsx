@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from './SearchBar.module.css'
 
 export default function SearchBar(props) {
    const [id, setId] = useState('')
@@ -7,7 +8,7 @@ export default function SearchBar(props) {
    }
    
    return (
-      <div>
+      <div className={style.container}>
          <input type='search' placeholder="Busca un personaje..." onChange={handleChange} value={id}/>
          <button onClick={() => {props.onSearch(id)}}>Agregar</button>
       </div>

@@ -17,15 +17,17 @@ export default function Detail() {
      }, [id]);
      
     return (
-        <div>
+        <div className={style.container}>
             <img src={character.image} alt={character.name} />
-            <h3>{character.name && character.name}</h3>
-            <h5>{character.status && character.status}</h5>
-            <section>
-               <p> Species: {character.species && character.species}</p>
-               <p>Gender: {character.gender && character.gender}</p>
-               <p>Origin: {character.origin && character.origin.name}</p>
-            </section>
+            <div>
+               <h3>{character.name && character.name}</h3>
+               <h5 ><span className={character.status === 'Dead' ? style.dead : character.status === 'Alive' ? style.alive : style.unknown}>{character.status && character.status}</span></h5>
+               <section>
+                  <p> Species: {character.species && character.species}</p>
+                  <p>Gender: {character.gender && character.gender}</p>
+                  <p>Origin: {character.origin && character.origin.name}</p>
+               </section>
+            </div>
         </div>
     )
 }

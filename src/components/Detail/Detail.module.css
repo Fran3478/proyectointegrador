@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.container img {
+    order: 1;
+    width: 40%;
+    object-fit: cover;
+    border-radius:1rem;
+}
+.container div {
+    align-content: center;
+    border-radius: 1rem 0 0 1rem;
+    background: radial-gradient(circle, rgb(138, 43, 226, 0.7), rgba(210, 42, 9, 0.3));
+    backdrop-filter: blur(10px);
+    width: 50%;
+    margin-left: 30px;
+    font-size: 3rem;
+    color:white;
+    text-shadow: 3px 3px 3px black;
+}
+.dead{
+    background: rgba(255, 0, 0, 0.564);
+    border-radius: 1rem;
+    padding: 15px;
+}
+.alive{
+    background: rgba(0, 255, 26, 0.564);
+    border-radius: 1rem;
+    padding: 15px;
+}
+.unknown{
+    background: rgba(116, 116, 116, 0.564);
+    border-radius: 1rem;
+    padding: 15px;
+}

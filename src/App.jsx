@@ -1,7 +1,7 @@
 import style from'./App.css';
 import Home from './components/Home/Home';
 import About from './components/About/About';
-import Detail from './components/detail/Detail';
+import Detail from './components/Detail/Detail';
 import Nav from './components/Nav/Nav'
 import Form from './components/Form/Form';
 import { useState, useEffect } from 'react';

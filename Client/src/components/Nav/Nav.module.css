@@ -1,0 +1,47 @@
+.nav {
+    background: radial-gradient(circle,  rgba(210, 42, 9, 0.7), rgb(138, 43, 226, 0.7));;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center ;
+    
+}
+.buttonContainer {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+}
+.linkContainer {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center ;
+}
+.logout {
+    box-shadow: inset 8px 10px 10px 1px rgba(255, 255, 255, 0.22);
+    background: rgb(228, 155, 30);
+    margin-right: 2rem;
+    width: 6rem;
+    height: 2.4rem;
+    border-radius: 1rem;
+    font-family: 'Comic Neue', cursive, 'Roboto';
+    font-size: 1rem;
+}
+.logout:hover {
+    box-shadow: 5px 5px rgba(0,0,0,0.5);
+}
+.btn {
+    box-shadow: inset 8px 10px 10px 1px rgba(255, 255, 255, 0.22);
+    background: rgb(228, 155, 30);
+    width: 6rem;
+    height: 2.4rem;
+    border-radius: 1rem;
+    font-family: 'Comic Neue', cursive, 'Roboto';
+    font-size: 1rem;
+}
+.btn:hover {
+    box-shadow: 5px 5px rgba(0,0,0,0.5);
+}

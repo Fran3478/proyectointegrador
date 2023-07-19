@@ -1,0 +1,22 @@
+.container input {
+    width: 11rem;
+    height: 2.4rem;
+    border-radius: 0.3rem 0 0 0.3rem;
+    border-color: rgb(228, 155, 30);
+    border-width: 5px;
+    font-family: 'Comic Neue', cursive, 'Roboto';
+    font-size: 1rem;
+}
+.container button {
+    width: 6rem;
+    height: 2.4rem;
+    border-radius: 0 0.3rem 0.3rem 0;
+    border: none;
+    font-family: 'Comic Neue', cursive, 'Roboto';
+    font-size: 1rem;
+    background: rgb(228, 155, 30);
+}
+.container button:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px rgba(0,0,0,0.5);
+}

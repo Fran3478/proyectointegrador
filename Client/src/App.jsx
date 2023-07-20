@@ -14,20 +14,24 @@ function App() {
    const location = useLocation()
    const navigate = useNavigate()
    const [access, setAccess] = useState(false)
-   function login(userData) {
+   
+   async function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      try {
+         const {data} = await axios(URL + `?email=${email}&password=${password}`)
          const { access } = data;
          setAccess(access);
          access && navigate('/home');
-      });
+      } catch (error) {
+         alert(error.message)
+      }
+      
    }
    function logout() {
       setAccess(false)
-      navigate('/')
    }
-   function onSearch(id) {
+   async function onSearch(id) {
       let found = false
       characters.forEach(character => {
          if(character.id === parseInt(id)) {
@@ -35,26 +39,30 @@ function App() {
          }
       })
       if(!found) {
-         axios(`http://localhost:3001/rickandmorty/character/${id}`).then((response) => {
+         try {
+            const response = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
             if (response.data.name) {
                setCharacters((oldChars) => [...oldChars, response.data]);
             } 
-            // else {
-            //    window.alert(response.data.error);
-            // }
-         })
-         .catch((err) => alert(err.response.data.error))
+            else {
+               alert(response.data.error);
+            }
+         } catch (err) {
+            alert(err.response.data.error)
+         }
       } else {
          window.alert('ID repetido!');
       }
       
    }
    function onClose(id) {
-      setCharacters(characters.filter(character => character.id !== parseInt(id)))
+      setCharacters(characters.filter((character) => character.id !== parseInt(id)))
    }
+
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
+
    return (
       <div className='App'>
          {location.pathname !== '/' && (<Nav onSearch={onSearch} logout={logout}/>)}

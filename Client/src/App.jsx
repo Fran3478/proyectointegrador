@@ -4,6 +4,7 @@ import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Nav from './components/Nav/Nav'
 import Form from './components/Form/Form';
+import FormSignUp from './components/Form/FormSignUp';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
@@ -27,6 +28,19 @@ function App() {
          alert(error.message)
       }
       
+   }
+   async function signUp(userData) {
+      const URL = 'http://localhost:3001/rickandmorty/login/'
+      try {
+         const {data} = await axios.post(URL, userData)
+         if(data[data.length-1] === true) {
+            navigate('/')
+         } else {
+            alert(`El email: ${userData.email} ya esta registrado`)
+         }
+      } catch (error) {
+         alert(error.message)
+      }
    }
    function logout() {
       setAccess(false)
@@ -60,14 +74,17 @@ function App() {
    }
 
    useEffect(() => {
-      !access && navigate('/');
+      if(location.pathname !== '/signup' && location.pathname !== '/' && access === false) {
+         navigate('/')
+      }
    }, [access]);
 
    return (
       <div className='App'>
-         {location.pathname !== '/' && (<Nav onSearch={onSearch} logout={logout}/>)}
+         {(location.pathname !== '/' && location.pathname !== '/signup') ? (<Nav onSearch={onSearch} logout={logout}/>) : null}
          <Routes>
-            <Route path='/' element={<Form className={style.form} login={login}/>} />
+            <Route path='/' element={<Form login={login}/>} />
+            <Route path='/signup' element={<FormSignUp signUp={signUp}/>} />
             <Route path={"/home"} element={<Home characters={characters} onClose={onClose}/>}/>
             <Route path={"/about"} element={<About/>}/>
             <Route path={"/detail/:id"} element={<Detail/>}/>

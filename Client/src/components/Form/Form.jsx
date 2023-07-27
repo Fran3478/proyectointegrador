@@ -2,6 +2,7 @@ import { useState } from "react"
 import validate from './validations'
 import style from './Form.module.css'
 import img from '../../assets/portada.png'
+import { NavLink } from "react-router-dom"
 export default function Form(props) {
     const [showPw, setShowPw] = useState(false)
     const [userData, setUserData] = useState({
@@ -40,7 +41,9 @@ export default function Form(props) {
               </span>
             </div>
             {errors.password ? <p className={style.error}>{errors.password}</p> : null}
-            
+            <NavLink to={"/signup"}>
+              <button className={style.btn1}>Sign Up</button>
+            </NavLink>
             <button className={style.btn} type='submit'>Login</button>
           </form>
         </div>

@@ -5,8 +5,8 @@ const agent = session(app);
 const props = ["id", "name", "species", "gender", "status", "origin", "image"]
 const email = "franciscohv95@gmail.com"
 const password = "asd123"
-const character1 = {id:1,name:"Rick Sanchez",gender:"Male",species:"Human",origin:{name:"Earth (C-137)",url:"https://rickandmortyapi.com/api/location/1"},image:"https://rickandmortyapi.com/api/character/avatar/1.jpeg",status:"Alive"}
-const character2 = {id:2,name:"Morty Smith",gender:"Male",species:"Human",origin:{name:"unknown",url:""},image:"https://rickandmortyapi.com/api/character/avatar/2.jpeg",status:"Alive"}
+const character1 = {id:1,name:"Rick Sanchez",gender:"Male",species:"Human",origin:"Earth (C-137)",image:"https://rickandmortyapi.com/api/character/avatar/1.jpeg",status:"Alive"}
+const character2 = {id:2,name:"Morty Smith",gender:"Male",species:"Human",origin:"unknown",image:"https://rickandmortyapi.com/api/character/avatar/2.jpeg",status:"Alive"}
 
 describe("Test de RUTAS", () => {
     describe("GET /rickandmorty/character/:id", () => {
